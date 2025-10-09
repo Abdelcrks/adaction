@@ -30,7 +30,6 @@ async function searchVolunteers() {
   });
 }
 
-
 function dynamic(element) {
   const volunteers = document.createElement("div");
   divContainer.appendChild(volunteers);
@@ -77,7 +76,6 @@ function dynamic(element) {
     });
 
 
-
   // bouton supprimer
   deleteVolunteers.addEventListener("click", async () => {
     fetchDelete(element);
@@ -86,6 +84,7 @@ function dynamic(element) {
   // bouton modifier
   modifiedVolunteers.addEventListener("click", () => {
     // Supprimer un ancien formulaire s’il existe déjà
+    
     const oldForm = document.getElementById("formUpdateVolunteers");
     if (oldForm) oldForm.remove();
 
@@ -169,7 +168,6 @@ function dynamic(element) {
 }
 
 
-
 async function fetchDelete(element){  
     try {    
         const resp = await fetch("http://localhost:3000/benevoles", {      
@@ -251,7 +249,6 @@ async function fetchModified(volunteer) {
 } 
 
 
-
 const collectesId = async (benevole, parentEl) => {
   const response = await fetch(`http://localhost:3000/collectes/${benevole.id}`);
   const collectes = await response.json();
@@ -285,5 +282,4 @@ const collectesId = async (benevole, parentEl) => {
       `#${id} • ${city} • mégots:${megots} • gobelets:${goblets} • canettes:${canettes} • filets:${filets} • préservatifs:${preservatifs} • sacs:${sacs}`;
     list.appendChild(li);
   });
-
 };
