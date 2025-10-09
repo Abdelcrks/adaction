@@ -193,7 +193,7 @@ async function fetchDelete(element){
 }
 
 function addVolunteers() {
-  formCreateVolunteers.style.display = "block"
+  formCreateVolunteers.style.display = formCreateVolunteers.style.display === "none" ? "block" : "none";
 }
 
 async function validateVolunteers(){
