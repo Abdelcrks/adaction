@@ -8,13 +8,9 @@ const form = document.querySelector("#formCreateVolunteers")
 
 btnCreateVolunteer.addEventListener("click", (e) =>{
     e.preventDefault()
+    form.style.display = form.style.display === "none" ? "block" : "none";
 
-    btnCreateVolunteer.style.display="none"
-    btnConnect.style.display="none"
-    form.style.display="block"
 })
-
-
 
 
 
@@ -45,8 +41,6 @@ async function validateVolunteers(){
         // alert("❌ Impossible de créer le bénévole");    
         console.log('Error :', e);  }
    
-
-        // 
 }
 
 
