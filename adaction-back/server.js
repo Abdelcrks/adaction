@@ -1,8 +1,9 @@
-import serverless from "serverless-http";
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { Pool } from "pg";
+import serverless from "serverless-http";
+
 
 dotenv.config();
 
@@ -39,6 +40,9 @@ const pool = new Pool({
 app.get("/", (req, res) => {
   res.send("Accueil");
 });
+
+
+app.get("/health", (req, res) => res.json({ ok: true }));
 
 // Récupérer les bénévoles
 app.get("/benevoles", async (req, res) => {
