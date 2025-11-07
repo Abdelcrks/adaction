@@ -174,6 +174,7 @@ const collectesId = async (benevole_id) => {
 
   collectesId(id)
 document.getElementById("btn-modification").addEventListener("click", () => {
+  
   if (!currentVolunteer) return alert("Aucune donnée du profil chargée");
 
   const oldForm = document.getElementById("formUpdateVolunteers");

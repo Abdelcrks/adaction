@@ -1,12 +1,32 @@
+import serverless from "serverless-http";
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { Pool } from "pg";
 
 dotenv.config();
+
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: "http://127.0.0.1:5500" }));
+
+// const allowedOrigins = [
+//   process.env.FRONT_ORIGIN ?? "http://127.0.0.1:5500", // front local par défaut
+// ];
+// app.use(cors({ origin: allowedOrigins, credentials: true }))
+
+const allowedOrigins = [
+  "http://127.0.0.1:5500",
+  process.env.FRONT_ORIGIN, // ex: https://adaction-front.vercel.app
+].filter(Boolean);
+
+
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+  })
+);
 
 
 const pool = new Pool({
@@ -272,6 +292,12 @@ app.post("/login", async (req, res) => {
 });
 
 
-app.listen(3000, () => {
-  console.log("Serveur lancé sur http://localhost:3000");
-});
+// app.listen(3000, () => {
+//   console.log("Serveur lancé sur http://localhost:3000");
+// });
+
+
+// if (!process.env.VERCEL) {
+//   app.listen(3000, () => console.log("Serveur local sur http://localhost:3000"));
+// }
+export default serverless(app);
