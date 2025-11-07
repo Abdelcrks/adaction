@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { Pool } from "pg";
-import serverless from "serverless-http";
+
 
 
 dotenv.config();
@@ -301,7 +301,8 @@ app.post("/login", async (req, res) => {
 // });
 
 
-// if (!process.env.VERCEL) {
-//   app.listen(3000, () => console.log("Serveur local sur http://localhost:3000"));
-// }
-export default serverless(app);
+if (!process.env.VERCEL) {
+  app.listen(3000, () => console.log("Serveur local sur http://localhost:3000"));
+}
+
+export default app;
