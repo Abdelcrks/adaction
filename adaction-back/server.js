@@ -29,6 +29,11 @@ app.use(
   })
 );
 
+app.options("*", cors({
+  origin: allowedOrigins,
+  credentials: true,
+}));
+
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
