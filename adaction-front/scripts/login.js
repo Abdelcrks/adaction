@@ -1,4 +1,4 @@
-const API = "https://adaction-83w2.vercel.app"; // vercel backend
+const api = "https://adaction-83w2.vercel.app"; // vercel backend
 
 
 const form = document.querySelector("form")
