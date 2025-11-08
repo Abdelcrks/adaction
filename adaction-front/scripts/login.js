@@ -1,6 +1,7 @@
+const API = "https://adaction-83w2.vercel.app"; // vercel backend
+
+
 const form = document.querySelector("form")
-
-
 form.addEventListener("submit", async (e) => {
     e.preventDefault()
 
@@ -8,7 +9,8 @@ form.addEventListener("submit", async (e) => {
     const password = document.querySelector("#password-input").value
 
     try {    
-        const resp = await fetch("http://localhost:3000/login", {      
+        // const resp = await fetch("http://localhost:3000/login", {    localhost
+        const resp = await fetch(`${api}/login`,{     
             method: "POST",      
             headers: { "Content-Type": "application/json" },      
             body: JSON.stringify({
